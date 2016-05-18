@@ -19,27 +19,28 @@ var helper = function () {
 
 function Calculator() {
 	this.helper = helper();
-	this.inputField = this.helper.selectByClass('js-inputfield');
+	this.inputField = this.helper.selectByClass('js-inputField');
 	this.clearButton = this.helper.selectByClass('js-clear');
 	this.solveButton = this.helper.selectByClass('js-button-solve');
 	this.numberButtons = document.getElementsByClassName('js-button');
 	this.operatorButtons = document.getElementsByClassName('js-button-operator');
 	var _this = this;
+	var result;
 	this.doAddition = function (a, b) {
 
-		var result = a + b;
+		result = a + b;
 		this.inputField.value = result;
 	};
 	this.doSubtraction = function (a, b) {
-		var result = a - b;
+		result = a - b;
 		this.inputField.value = result;
 	};
 	this.doDivision = function (a, b) {
-		var result = a / b;
+		result = a / b;
 		this.inputField.value = result;
 	};
 	this.doMultiplication = function (a, b) {
-		var result = a * b;
+		result = a * b;
 		this.inputField.value = result;
 	};
 	this.clearField = function () {
@@ -96,7 +97,6 @@ function Calculator() {
 			evt.preventDefault();
 			_this.clearField();
 		});
-
 		this.solveButton.addEventListener('click', function (evt) {
 			var entryText = _this.inputField.value;
 			var operator;
@@ -125,16 +125,3 @@ var calculator = new Calculator();
 
 
 calculator.init();
-
-
-/*var buttonCollection = document.getElementsByTagName('button');
- for (var i = 0; i < buttonCollection.length; i++) {
- console.log(buttonCollection[i].value);
- }*/
-// var inputField = document.getElementsByTagName('input');
-// for (var i = 0; i < buttonCollection.length; i++) {
-// 	buttonCollection[i].addEventListener('click', function () {
-// 			inputField = buttonCollection[i];
-// 			});
-// }
-

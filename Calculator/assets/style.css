@@ -11,4 +11,8 @@ table {
 button {
 	color: #900;
 	font-weight: bold;
+	cursor: pointer;
+}
+input {
+	cursor: text;
 }
