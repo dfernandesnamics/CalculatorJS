@@ -26,6 +26,23 @@ function Calculator() {
 	this.operatorButtons = document.getElementsByClassName('js-button-operator');
 	var _this = this;
 	var result;
+	this.operation = function () {
+		var entryText = _this.inputField.value;
+		var operator;
+		if (entryText.indexOf('+') !== -1) {
+			operator = '+';
+		}
+		else if (entryText.indexOf('-') !== -1) {
+			operator = '-';
+		}
+		else if (entryText.indexOf('/') !== -1) {
+			operator = '/';
+		}
+		else if (entryText.indexOf('x') !== -1) {
+			operator = 'x';
+		}
+		return operator;
+	};
 	this.doAddition = function (a, b) {
 
 		result = a + b;
@@ -98,24 +115,22 @@ function Calculator() {
 			_this.clearField();
 		});
 		this.solveButton.addEventListener('click', function (evt) {
-			var entryText = _this.inputField.value;
-			var operator;
-			if (entryText.indexOf('+') !== -1) {
-				operator = '+';
-			}
-			else if (entryText.indexOf('-') !== -1) {
-				operator = '-';
-			}
-			else if (entryText.indexOf('/') !== -1) {
-				operator = '/';
-			}
-			else if (entryText.indexOf('x') !== -1) {
-				operator = 'x';
-			}
-			var definedNumbers = entryText.split(operator);
-
+			var operator = _this.operation();
+			var definedNumbers = _this.inputField.value.split(operator);
 			_this.solveOperation(operator, definedNumbers[0], definedNumbers[1]);
+		});
+
+		document.addEventListener('keydown', function (keyEvent) {
+			var enterKey = 13;
+			var key = keyEvent.keyCode || keyEvent.which;
+			var operator = _this.operation();
+			var definedNumbers = _this.inputField.value.split(operator);
+			if (key == enterKey) {
+				keyEvent.preventDefault();
+				_this.solveOperation(operator, definedNumbers[0], definedNumbers[1])
+			}
 		})
+
 
 	};
 	this.initialEvents();
