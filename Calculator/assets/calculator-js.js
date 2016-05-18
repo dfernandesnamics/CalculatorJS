@@ -6,8 +6,8 @@ var helper = function () {
 	return {
 		parseArguments: function (firstArgument, secondArgument) {
 			return {
-				numberOne: parseInt(firstArgument, 10),
-				numberTwo: parseInt(secondArgument, 10)
+				numberOne: parseFloat(firstArgument),
+				numberTwo: parseFloat(secondArgument)
 			}
 		},
 		selectByClass: function (className) {
