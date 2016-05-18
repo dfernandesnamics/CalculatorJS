@@ -1,0 +1,14 @@
+table {
+	margin: 200px auto 0;
+}
+
+.container {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+}
+
+button {
+	color: #900;
+	font-weight: bold;
+}
